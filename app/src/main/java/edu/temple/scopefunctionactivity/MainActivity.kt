@@ -27,13 +27,25 @@ class MainActivity : AppCompatActivity() {
     // Look at the final/return value and build the function "working backwards"
 
     // Return a list of random, sorted integers
+    private fun getTestDataArray() : Unit = MutableList(10){Random.nextInt()}.sort()
+
+    /*
     private fun getTestDataArray() : List<Int> {
         val testArray = MutableList(10){ Random.nextInt()}
         testArray.sort()
         return testArray
-    }
+    } */
 
     // Return true if average value in list is greater than median value, false otherwise
+
+    private fun averageLessThanMedian(listOfNumbers: List<Double>): Boolean = if(listOfNumbers.average() <
+            (if (listOfNumbers.sorted().size % 2 == 0) {(listOfNumbers.sorted()[listOfNumbers.sorted().size / 2]
+                    + listOfNumbers.sorted()[(listOfNumbers.sorted().size - 1) / 2]) / 2 }
+            else {listOfNumbers.sorted()[listOfNumbers.sorted().size / 2]}))
+        {true}
+        else {false}
+
+    /*
     private fun averageLessThanMedian(listOfNumbers: List<Double>): Boolean {
         val avg = listOfNumbers.average()
         val sortedList = listOfNumbers.sorted()
@@ -43,10 +55,18 @@ class MainActivity : AppCompatActivity() {
             sortedList[sortedList.size / 2]
 
         return avg < median
-    }
+    } */
 
     // Create a view from an item in a collection, but recycle if possible (similar to an AdapterView's adapter)
+
+
+    private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View =
+        if (recycledView != null) {recycledView as TextView}
+        else { this.setPadding(5, 10, 10, 0)}
+
+    /*
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
+
         val textView: TextView
 
         if (recycledView != null) {
@@ -61,5 +81,5 @@ class MainActivity : AppCompatActivity() {
 
         return textView
     }
-
+    */
 }
