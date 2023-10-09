@@ -62,7 +62,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View =
         if (recycledView != null) {recycledView as TextView}
-        else { this.setPadding(5, 10, 10, 0)}
+        else { TextView(context).setPadding(5, 10, 10, 0) as TextView}
+
+            //.setPadding(5, 10, 10, 0)}
 
     /*
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
